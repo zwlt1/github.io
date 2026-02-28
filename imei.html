@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>串码管理</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#f5f7fa;font-family:微软雅黑}
+.header{background:#007AFF;color:#fff;padding:16px 20px}
+.main{padding:20px}
+input{padding:12px;width:100%;margin:8px 0;border:1px solid #ddd;border-radius:8px}
+button{padding:12px;background:#007AFF;color:#fff;border:0;border-radius:8px;width:100%}
+.table{background:#fff;border-radius:8px;margin-top:20px;overflow:hidden}
+.table .tr{display:flex;padding:12px;border-bottom:1px solid #eee}
+.table .td{flex:1}
+</style>
+
+<div class="header">IMEI串码管理</div>
+<div class="main">
+  <input id="imei" placeholder="IMEI串码">
+  <input id="model" placeholder="型号（例：iPhone 15）">
+  <input id="spec" placeholder="规格（例：黑色 256G）">
+  <input id="priceIn" placeholder="进价">
+  <input id="priceOut" placeholder="售价">
+  <button onclick="addImei()">添加串码</button>
+
+  <div class="table">
+    <div class="tr">
+      <div class="td">IMEI</div>
+      <div class="td">型号</div>
+      <div class="td">规格</div>
+      <div class="td">状态</div>
+    </div>
+    <div id="list"></div>
+  </div>
+</div>
+
+<script>
+function addImei(){
+  let imei = document.getElementById('imei').value
+  let model = document.getElementById('model').value
+  let spec = document.getElementById('spec').value
+
+  if(!imei){
+    alert("请输入IMEI")
+    return
+  }
+
+  let html = `
+  <div class="tr">
+    <div class="td">${imei}</div>
+    <div class="td">${model}</div>
+    <div class="td">${spec}</div>
+    <div class="td">未销售</div>
+  </div>`
+
+  document.getElementById('list').innerHTML += html
+  alert("添加成功！")
+}
+</script>

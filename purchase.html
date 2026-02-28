@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>采购进货</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#f5f7fa;font-family:微软雅黑}
+.header{background:#007AFF;color:#fff;padding:16px 20px}
+.main{padding:20px}
+input{padding:12px;width:100%;margin:8px 0;border:1px solid #ddd;border-radius:8px}
+button{padding:12px;background:#007AFF;color:#fff;border:0;border-radius:8px;width:100%}
+.table{background:#fff;border-radius:8px;margin-top:20px;overflow:hidden}
+.tr{display:flex;padding:12px;border-bottom:1px solid #eee}
+.td{flex:1}
+</style>
+
+<div class="header">采购进货</div>
+<div class="main">
+  <input id="supplier" placeholder="供应商名称">
+  <input id="goods" placeholder="商品名称">
+  <input id="count" placeholder="数量">
+  <input id="money" placeholder="金额">
+
+  <button onclick="addPurchase()">添加采购单</button>
+
+  <div class="table">
+    <div class="tr">
+      <div class="td">供应商</div>
+      <div class="td">商品</div>
+      <div class="td">数量</div>
+      <div class="td">金额</div>
+    </div>
+    <div id="list"></div>
+  </div>
+</div>
+
+<script>
+function addPurchase(){
+  let supplier = document.getElementById('supplier').value
+  let goods = document.getElementById('goods').value
+  let count = document.getElementById('count').value
+  let money = document.getElementById('money').value
+
+  let item = `
+  <div class="tr">
+    <div class="td">${supplier}</div>
+    <div class="td">${goods}</div>
+    <div class="td">${count}</div>
+    <div class="td">${money}</div>
+  </div>`
+
+  document.getElementById('list').innerHTML += item
+  alert("采购录入成功！")
+}
+</script>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>销售开单</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#f5f7fa;font-family:微软雅黑}
+.header{background:#007AFF;color:#fff;padding:16px 20px}
+.main{padding:20px}
+input{padding:12px;width:100%;margin:8px 0;border:1px solid #ddd;border-radius:8px}
+button{padding:12px;background:#007AFF;color:#fff;border:0;border-radius:8px;width:100%;margin-top:10px}
+.card{background:#fff;padding:20px;border-radius:8px;margin-top:20px}
+</style>
+
+<div class="header">销售开单</div>
+<div class="main">
+  <input id="customer" placeholder="客户姓名">
+  <input id="phone" placeholder="客户电话">
+  <input id="user" placeholder="销售员">
+  <input id="imei" placeholder="IMEI串码">
+  <input id="goods" placeholder="商品名称">
+  <input id="cost" placeholder="成本价" value="0">
+  <input id="price" placeholder="销售价" value="0">
+
+  <button onclick="sell()">确认销售</button>
+
+  <div class="card" id="result" style="display:none">
+    <h3>销售成功</h3>
+    <p>客户：<span id="c"></span></p >
+    <p>商品：<span id="g"></span></p >
+    <p>成本：<span id="co"></span> 元</p >
+    <p>售价：<span id="pr"></span> 元</p >
+    <p>利润：<span id="profit"></span> 元</p >
+    <p>毛利率：<span id="rate"></span> %</p >
+  </div>
+</div>
+
+<script>
+function sell() {
+  let customer = document.getElementById('customer').value
+  let goods = document.getElementById('goods').value
+  let cost = Number(document.getElementById('cost').value)
+  let price = Number(document.getElementById('price').value)
+
+  let profit = price - cost
+   let rate = profit / price * 100
+
+  document.getElementById('c').innerText = customer
+  document.getElementById('g').innerText = goods
+  document.getElementById('co').innerText = cost
+  document.getElementById('pr').innerText = price
+  document.getElementById('profit').innerText = profit
+  document.getElementById('rate').innerText = rate.toFixed(2)
+
+  document.getElementById('result').style.display = 'block'
+}
+</script>

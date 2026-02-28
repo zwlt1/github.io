@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>手机店进销存管理系统</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#f5f7fa;font-family:微软雅黑}
+.login{width:400px;background:#fff;margin:100px auto;padding:40px;border-radius:14px}
+h2{margin-bottom:20px;text-align:center}
+input{width:100%;padding:14px;margin:10px 0;border:1px solid #ddd;border-radius:8px}
+button{width:100%;padding:14px;background:#007AFF;color:#fff;border:0;border-radius:8px}
+#main{display:none;padding:20px}
+.menu{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-bottom:20px}
+.menu a{background:#007AFF;color:#fff;padding:14px;text-align:center;border-radius:8px;text-decoration:none}
+</style>
+
+<div class="login" id="login">
+  <h2>手机店进销存</h2>
+  <input id="user" placeholder="账号">
+  <input id="pwd" type="password" placeholder="密码">
+  <button onclick="go()">登录</button>
+</div>
+
+<div id="main">
+  <div class="menu">
+    <a>首页</a >
+    <a>串码管理</a >
+    <a>配件管理</a >
+    <a>条码生成</a >
+    <a>销售开单</a >
+    <a>采购管理</a >
+    <a>员工</a >
+    <a>分店</a >
+    <a>报表</a >
+  </div>
+  <h1>登录成功！系统正常运行</h1>
+</div>
+
+<script>
+function go(){
+  let u = document.getElementById('user').value
+  let p = document.getElementById('pwd').value
+  if(u=="admin" && p=="123456"){
+    document.getElementById('login').style.display="none"
+    document.getElementById('main').style.display="block"
+  }else{
+    alert("账号：admin，密码：123456")
+  }
+}
+</script>

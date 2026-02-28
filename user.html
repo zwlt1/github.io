@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>员工管理 & 提成</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#f5f7fa;font-family:微软雅黑}
+.header{background:#007AFF;color:#fff;padding:16px 20px}
+.main{padding:20px}
+input{padding:12px;width:100%;margin:8px 0;border:1px solid #ddd;border-radius:8px}
+button{padding:12px;background:#007AFF;color:#fff;border:0;border-radius:8px;width:100%}
+.table{background:#fff;border-radius:8px;margin-top:20px;overflow:hidden}
+.tr{display:flex;padding:12px;border-bottom:1px solid #eee}
+.td{flex:1}
+</style>
+
+<div class="header">员工管理 & 销售提成</div>
+<div class="main">
+  <input id="name" placeholder="员工姓名">
+  <input id="phone" placeholder="员工电话">
+  <input id="percent" placeholder="提成比例 %" value="5">
+  <button onclick="addUser()">添加员工</button>
+
+  <div class="table">
+    <div class="tr">
+      <div class="td">员工</div>
+      <div class="td">电话</div>
+      <div class="td">提成比例</div>
+    </div>
+    <div id="list"></div>
+  </div>
+</div>
+
+<script>
+function addUser(){
+  let name = document.getElementById('name').value
+  let phone = document.getElementById('phone').value
+  let percent = document.getElementById('percent').value
+
+  let html = `
+  <div class="tr">
+    <div class="td">${name}</div>
+    <div class="td">${phone}</div>
+    <div class="td">${percent}%</div>
+  </div>`
+
+  document.getElementById('list').innerHTML += html
+  alert("员工添加成功！")
+}
+</script>

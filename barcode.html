@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>条码生成</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#f5f7fa;font-family:微软雅黑}
+.header{background:#007AFF;color:#fff;padding:16px 20px}
+.main{padding:20px}
+input{padding:12px;width:100%;margin:8px 0;border:1px solid #ddd;border-radius:8px}
+button{padding:12px;background:#007AFF;color:#fff;border:0;border-radius:8px;width:100%}
+
+.bar{
+  background:#fff;
+  padding:30px;
+  margin-top:20px;
+  border-radius:10px;
+  text-align:center;
+  display:none;
+}
+.bar-name{
+  font-size:18px;
+  margin-bottom:10px;
+}
+.bar-code{
+  font-size:32px;
+  letter-spacing:2px;
+  font-weight:bold;
+}
+</style>
+
+<div class="header">条码生成</div>
+<div class="main">
+  <input id="code" placeholder="商品编码（数字/字母）">
+  <input id="name" placeholder="商品名称（例：钢化膜）">
+  <button onclick="createBar()">生成条码</button>
+
+  <div class="bar" id="bar">
+    <div class="bar-name" id="barName"></div>
+    <div class="bar-code" id="barCode"></div>
+  </div>
+</div>
+
+<script>
+function createBar() {
+  let code = document.getElementById('code').value
+  let name = document.getElementById('name').value
+
+  if (!code) {
+    alert("请输入商品编码")
+    return
+  }
+
+  document.getElementById('barName').innerText = name
+  document.getElementById('barCode').innerText = code
+  document.getElementById('bar').style.display = "block"
+}
+</script>

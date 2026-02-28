@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>分店管理</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#f5f7fa;font-family:微软雅黑}
+.header{background:#007AFF;color:#fff;padding:16px 20px}
+.main{padding:20px}
+input{padding:12px;width:100%;margin:8px 0;border:1px solid #ddd;border-radius:8px}
+button{padding:12px;background:#007AFF;color:#fff;border:0;border-radius:8px;width:100%}
+.table{background:#fff;border-radius:8px;margin-top:20px;overflow:hidden}
+.tr{display:flex;padding:12px;border-bottom:1px solid #eee}
+.td{flex:1}
+</style>
+
+<div class="header">分店管理</div>
+<div class="main">
+  <input id="bname" placeholder="分店名称（例：总店/一店/二店）">
+  <input id="manager" placeholder="负责人">
+  <input id="phone" placeholder="联系电话">
+  <button onclick="addBranch()">添加分店</button>
+
+  <div class="table">
+    <div class="tr">
+      <div class="td">分店名称</div>
+      <div class="td">负责人</div>
+      <div class="td">电话</div>
+    </div>
+    <div id="list"></div>
+  </div>
+</div>
+
+<script>
+function addBranch(){
+  let bname = document.getElementById('bname').value
+  let manager = document.getElementById('manager').value
+  let phone = document.getElementById('phone').value
+
+  let html = `
+  <div class="tr">
+    <div class="td">${bname}</div>
+    <div class="td">${manager}</div>
+    <div class="td">${phone}</div>
+  </div>`
+
+  document.getElementById('list').innerHTML += html
+  alert("分店添加成功！")
+}
+</script>
